@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Phone
+{% endblock %}
+
+{% block main %}
+
+    <!-- This is where data usage is entered by user -->
+<form action="/phone" method="post">
+        <p>
+            Please select an option from the apps mentioned below then enter time spent on each app in minutes.
+        </p>
+        <p>
+            If required app is not in the list below then please select 'other' and click submit.
+        </p>
+        <div class="form-group">
+            <select name="app" class="form-control" required>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="twitter">Twitter</option>
+                    <option value="reddit">Reddit</option>
+                    <option value="safari">Safari</option>
+                    <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="minutes" name="minutes" placeholder="minutes" type="text">
+        </div>
+        <button class="btn btn-primary" onclick="return Validate()" type="submit">Submit</button>
+    </form>
+    <script>
+        function Validate() {
+            var time = document.getElementById("minutes").value;
+            // check username was entered
+            if (time.length < 1) {
+                alert("Please enter a time value in minutes!");
+                return false;
+            }
+        }
+    </script>
+{% endblock %}

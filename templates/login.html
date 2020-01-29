@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <p>
+        Welcome! Please login.
+    </p>
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input autocomplete="on" autofocus class="form-control" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="password" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn btn-primary" onclick="return Validate()" type="submit">Log In</button>
+    </form>
+    <script>
+    function Validate() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        // check username was entered
+        if (username.length < 1) {
+            alert("Please enter a username!");
+            return false;
+        } // check password min. length
+        if (password.length < 1) {
+            alert("Please enter a password!");
+            return false;
+        }
+
+    }
+    </script>
+{% endblock %}

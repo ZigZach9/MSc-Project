@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Mental Health
+{% endblock %}
+
+{% block main %}
+
+<form action="/depression" method="get">
+        <p>
+            Click on begin to start answering questions about your mental health. Answer as honestly as possible each time, and make sure you answer every question.
+        </p>
+        <button class="btn btn-primary" type="submit">Begin</button>
+    </form>
+
+{% endblock %}

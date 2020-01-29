@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Other
+{% endblock %}
+
+{% block main %}
+
+    <!-- This is where data usage is entered by user -->
+<form action="/phone" method="post">
+        <p>
+            Please type the name of the app you wish to enter data for below using '_' instead of spaces.
+        </p>
+        <div class="form-group">
+            <input class="form-control" autofocus id="app" name="other" placeholder="Enter app here" type="text" >
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="minutes" name="minutes" placeholder="minutes" type="text">
+        </div>
+        <button class="btn btn-primary" onclick= "return validate()" type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validate(){
+            var app = document.getElementById('app').value;
+            if (app.match(' ')) {
+                alert("Please use _ instead of spaces!")
+                return false
+            }
+            else {
+                return true
+            }
+        }
+    </script>
+
+{% endblock %}
